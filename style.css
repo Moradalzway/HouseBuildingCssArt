@@ -1,0 +1,229 @@
+/*
+    Author: Noureldeen (Morad) Alzway
+    AuthorUrl : https://noureldeen.dev
+*/
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+}
+
+.artboard {
+  padding: 100px 0px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.roof-container {
+  width: 650px;
+  height: 160px;
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.roof-container .roof {
+  z-index: 5;
+  width: 100%;
+  height: 100%;
+  background-color: #3e3d4f;
+  -webkit-transform: perspective(200px) rotateX(10deg);
+          transform: perspective(200px) rotateX(10deg);
+  position: relative;
+}
+
+.roof-container .gable {
+  position: absolute;
+  display: block;
+  width: 200px;
+  height: 200px;
+  background-color: transparent !important;
+  border: 7px solid white;
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+  top: 60px;
+  z-index: 5;
+}
+
+.roof-container .gable-behind {
+  position: absolute;
+  display: block;
+  width: 200px;
+  height: 200px;
+  background-color: #ffe1c5 !important;
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+  top: 60px;
+  z-index: 5;
+}
+
+.roof-container .roof-shadow {
+  width: 600px;
+  height: 15px;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr;
+}
+
+.roof-container .roof-shadow span {
+  background-color: #e2ba96;
+  z-index: 4;
+}
+
+.house {
+  background-color: #f5cfab;
+  width: 600px;
+  height: 500px;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr;
+  -ms-grid-rows: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+  z-index: 10;
+}
+
+.house .window-container {
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.house .window-container:nth-child(2) {
+  background-color: #ffe1c5 !important;
+}
+
+.house .window-container .window {
+  width: 100px;
+  height: 140px;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: 5fr 4fr 4fr;
+      grid-template-rows: 5fr 4fr 4fr;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+  gap: 0px;
+}
+
+.house .window-container .window span {
+  width: 100%;
+  height: 100%;
+  background-color: #abc6eb;
+  display: block;
+  border-bottom: 5px solid #fff;
+  border-right: 3px solid #fff;
+  border-left: 3px solid #fff;
+}
+
+.house .window-container .window span:nth-child(1) {
+  border-top-left-radius: 100px;
+  border-top: 5px solid #fff;
+}
+
+.house .window-container .window span:nth-child(2) {
+  border-top-right-radius: 100px;
+  border-top: 5px solid #fff;
+}
+
+.house .window-container .window span:nth-child(odd) {
+  border-left: 5px solid #fff;
+}
+
+.house .window-container .window span:nth-child(even) {
+  border-right: 5px solid #fff;
+}
+
+.house .window-container .window-base {
+  width: 140px;
+  height: 8px;
+  background-color: #f0c49f;
+}
+
+.house .door-container {
+  background-color: #ffe1c5 !important;
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.house .door-container .door {
+  width: 110px;
+  height: 210px;
+  background-color: #ebb788;
+  border: 5px solid #fff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-radius: 100px 100px 0 0;
+}
+
+.house .door-container .door .keylock {
+  width: 10px;
+  height: 10px;
+  margin: 10px;
+  background-color: white;
+  border-radius: 50%;
+}
+
+.house-base {
+  width: 670px;
+  height: 12px;
+  background-color: #ababab;
+}
+/*# sourceMappingURL=style.css.map */

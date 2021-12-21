@@ -1,0 +1,198 @@
+/*
+    Author: Noureldeen (Morad) Alzway
+    AuthorUrl : https://noureldeen.dev
+*/
+
+$houseWidth: 600px;
+$houseHeight: 500px;
+$housePrimaryColor: #ffe1c5;
+$houseAccentColor: #f5cfab;
+$houseBaseColor: #ababab;
+
+$roofWidth: 650px;
+$roofHeight: 160px;
+$roofColor: #3e3d4f;
+$roofShadowColor: #e2ba96;
+
+$gableSize: 200px;
+
+$windowWidth: 100px;
+$windowHeight: 140px;
+$windowColor: #abc6eb;
+$windowBaseColor: #f0c49f;
+$topWidnowBorderRadius: 100px;
+
+$doorWidth: 110px;
+$doorHeight: 210px;
+$doorColor: #ebb788;
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  // width: 100%;
+  height: 100vh;
+}
+
+.artboard {
+  padding: 100px 0px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.roof-container {
+  width: $roofWidth;
+  height: $roofHeight;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  .roof {
+    z-index: 5;
+    width: 100%;
+    height: 100%;
+    background-color: $roofColor;
+    transform: perspective(200px) rotateX(10deg);
+    position: relative;
+  }
+
+  .gable {
+    position: absolute;
+    display: block;
+    width: $gableSize;
+    height: $gableSize;
+    background-color: transparent !important;
+    border: 7px solid white;
+    transform: rotate(45deg);
+    top: 60px;
+    z-index: 5;
+  }
+
+  .gable-behind {
+    position: absolute;
+    display: block;
+    width: $gableSize;
+    height: $gableSize;
+    background-color: $housePrimaryColor !important;
+    transform: rotate(45deg);
+    top: 60px;
+    z-index: 5;
+  }
+
+  .roof-shadow {
+    width: $houseWidth;
+    height: 15px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+
+    span {
+      background-color: $roofShadowColor;
+      z-index: 4;
+    }
+  }
+}
+
+.house {
+  //grid-container
+  background-color: $houseAccentColor;
+  width: $houseWidth;
+  height: $houseHeight;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  z-index: 10;
+
+  .window-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    &:nth-child(2) {
+      background-color: $housePrimaryColor !important;
+    }
+
+    .window {
+      width: $windowWidth;
+      height: $windowHeight;
+      display: grid;
+      grid-template-rows: 5fr 4fr 4fr;
+      grid-template-columns: 1fr 1fr;
+      gap: 0px;
+
+      span {
+        width: 100%;
+        height: 100%;
+        background-color: $windowColor;
+        display: block;
+        border-bottom: 5px solid #fff;
+        border-right: 3px solid #fff;
+        border-left: 3px solid #fff;
+
+        &:nth-child(1) {
+          border-top-left-radius: $topWidnowBorderRadius;
+          border-top: 5px solid #fff;
+        }
+
+        &:nth-child(2) {
+          border-top-right-radius: $topWidnowBorderRadius;
+          border-top: 5px solid #fff;
+        }
+
+        &:nth-child(odd) {
+          border-left: 5px solid #fff;
+        }
+        &:nth-child(even) {
+          border-right: 5px solid #fff;
+        }
+      }
+    }
+
+    .window-base {
+      width: 140px;
+      height: 8px;
+      background-color: $windowBaseColor;
+    }
+  }
+
+  .door-container {
+    background-color: $housePrimaryColor !important;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+
+    .door {
+      width: $doorWidth;
+      height: $doorHeight;
+      background-color: $doorColor;
+      border: 5px solid #fff;
+      display: flex;
+      justify-content: end;
+      align-items: center;
+      border-radius: $topWidnowBorderRadius $topWidnowBorderRadius 0 0;
+
+      .keylock {
+        width: 10px;
+        height: 10px;
+        margin: 10px;
+        background-color: white;
+        border-radius: 50%;
+      }
+    }
+  }
+}
+
+.house-base {
+  width: $houseWidth + 70px;
+  height: 12px;
+  background-color: $houseBaseColor;
+}

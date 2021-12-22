@@ -26,6 +26,8 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -webkit-animation: transitionFade 1s ease 0.3s 1 normal forwards;
+          animation: transitionFade 1s ease 0.3s 1 normal forwards;
 }
 
 .roof-container {
@@ -45,6 +47,9 @@ body {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  -webkit-animation: transitionFade 1s ease 1.8s 1 normal forwards;
+          animation: transitionFade 1s ease 1.8s 1 normal forwards;
+  opacity: 0;
 }
 
 .roof-container .roof {
@@ -107,6 +112,9 @@ body {
   -ms-grid-rows: 1fr 1fr;
       grid-template-rows: 1fr 1fr;
   z-index: 10;
+  -webkit-animation: transitionFade 1s ease 0.7s 1 normal forwards;
+          animation: transitionFade 1s ease 0.7s 1 normal forwards;
+  opacity: 0;
 }
 
 .house .window-container {
@@ -125,15 +133,30 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  position: relative;
 }
 
 .house .window-container:nth-child(2) {
   background-color: #ffe1c5 !important;
 }
 
-.house .window-container .window {
+.house .window-container .house-inside {
   width: 100px;
   height: 140px;
+  border-top-left-radius: 100px;
+  border-top-right-radius: 100px;
+  overflow: hidden;
+  position: relative;
+}
+
+.house .window-container .house-inside:hover {
+  background-color: black;
+  border: 3px solid #fff;
+}
+
+.house .window-container .house-inside .window {
+  width: 100%;
+  height: 100%;
   display: -ms-grid;
   display: grid;
   -ms-grid-rows: 5fr 4fr 4fr;
@@ -141,9 +164,17 @@ body {
   -ms-grid-columns: 1fr 1fr;
       grid-template-columns: 1fr 1fr;
   gap: 0px;
+  -webkit-transition: 0.7s;
+  transition: 0.7s;
+  position: absolute;
 }
 
-.house .window-container .window span {
+.house .window-container .house-inside .window:hover {
+  -webkit-transform: translateY(-70px);
+          transform: translateY(-70px);
+}
+
+.house .window-container .house-inside .window span {
   width: 100%;
   height: 100%;
   background-color: #abc6eb;
@@ -151,23 +182,26 @@ body {
   border-bottom: 5px solid #fff;
   border-right: 3px solid #fff;
   border-left: 3px solid #fff;
+  -webkit-animation: transitionFade 1s ease 1.4s 1 normal forwards;
+          animation: transitionFade 1s ease 1.4s 1 normal forwards;
+  opacity: 0;
 }
 
-.house .window-container .window span:nth-child(1) {
+.house .window-container .house-inside .window span:nth-child(1) {
   border-top-left-radius: 100px;
   border-top: 5px solid #fff;
 }
 
-.house .window-container .window span:nth-child(2) {
+.house .window-container .house-inside .window span:nth-child(2) {
   border-top-right-radius: 100px;
   border-top: 5px solid #fff;
 }
 
-.house .window-container .window span:nth-child(odd) {
+.house .window-container .house-inside .window span:nth-child(odd) {
   border-left: 5px solid #fff;
 }
 
-.house .window-container .window span:nth-child(even) {
+.house .window-container .house-inside .window span:nth-child(even) {
   border-right: 5px solid #fff;
 }
 
@@ -175,6 +209,9 @@ body {
   width: 140px;
   height: 8px;
   background-color: #f0c49f;
+  -webkit-animation: transitionFade 1s ease 1.1s 1 normal forwards;
+          animation: transitionFade 1s ease 1.1s 1 normal forwards;
+  opacity: 0;
 }
 
 .house .door-container {
@@ -194,12 +231,13 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  position: relative;
 }
 
-.house .door-container .door {
+.house .door-container .house-inside {
   width: 110px;
   height: 210px;
-  background-color: #ebb788;
+  background-color: black;
   border: 5px solid #fff;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -211,9 +249,45 @@ body {
       -ms-flex-align: center;
           align-items: center;
   border-radius: 100px 100px 0 0;
+  -webkit-transition: 1s;
+  transition: 1s;
+  position: relative;
+  -webkit-perspective: 500px;
+          perspective: 500px;
+  -webkit-perspective-origin: right;
+          perspective-origin: right;
+  overflow: hidden;
+  -webkit-animation: transitionFade 1s ease 1.5s 1 normal forwards;
+          animation: transitionFade 1s ease 1.5s 1 normal forwards;
+  opacity: 0;
 }
 
-.house .door-container .door .keylock {
+.house .door-container .house-inside .door {
+  width: 110px;
+  height: 210px;
+  background-color: #ebb788;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-radius: 100px 100px 0 0;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  position: absolute;
+}
+
+.house .door-container .house-inside .door:hover {
+  -webkit-transform: rotatey(47deg);
+          transform: rotatey(47deg);
+  border: 5px solid #fff;
+}
+
+.house .door-container .house-inside .door .keylock {
   width: 10px;
   height: 10px;
   margin: 10px;
@@ -225,5 +299,44 @@ body {
   width: 670px;
   height: 12px;
   background-color: #ababab;
+  -webkit-animation: transitionFade 1s ease 0.5s 1 normal forwards;
+          animation: transitionFade 1s ease 0.5s 1 normal forwards;
+  opacity: 0;
+}
+
+@-webkit-keyframes transitionFade {
+  0% {
+    -webkit-transform: translateY(-100px) scale(1);
+            transform: translateY(-100px) scale(1);
+    opacity: 0;
+  }
+  50% {
+    -webkit-transform: translateY(-100px) scale(1.2);
+            transform: translateY(-100px) scale(1.2);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateY(0px) scale(1);
+            transform: translateY(0px) scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes transitionFade {
+  0% {
+    -webkit-transform: translateY(-100px) scale(1);
+            transform: translateY(-100px) scale(1);
+    opacity: 0;
+  }
+  50% {
+    -webkit-transform: translateY(-100px) scale(1.2);
+            transform: translateY(-100px) scale(1.2);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateY(0px) scale(1);
+            transform: translateY(0px) scale(1);
+    opacity: 1;
+  }
 }
 /*# sourceMappingURL=style.css.map */

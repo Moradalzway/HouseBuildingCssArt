@@ -129,7 +129,15 @@ body {
     &:nth-child(2) {
       background-color: $housePrimaryColor !important;
     }
+    &:nth-child(3)  > .house-inside:hover {
+      box-shadow: 0em 0em 38px 14px gold;
+      background-color: gold;
+    }
 
+    &:nth-child(3) > .house-inside:hover span {
+
+      background-color:#ffe556;
+    }
     .house-inside{
       width: $windowWidth;
       height: $windowHeight;
@@ -137,6 +145,9 @@ body {
       border-top-right-radius: $topWidnowBorderRadius;
       overflow: hidden;
       position: relative;
+
+     
+  
 
 
       &:hover{

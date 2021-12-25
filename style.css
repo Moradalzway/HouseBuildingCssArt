@@ -140,6 +140,16 @@ body {
   background-color: #ffe1c5 !important;
 }
 
+.house .window-container:nth-child(3) > .house-inside:hover {
+  -webkit-box-shadow: 0em 0em 38px 14px gold;
+          box-shadow: 0em 0em 38px 14px gold;
+  background-color: gold;
+}
+
+.house .window-container:nth-child(3) > .house-inside:hover span {
+  background-color: #ffe556;
+}
+
 .house .window-container .house-inside {
   width: 100px;
   height: 140px;
